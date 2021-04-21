@@ -1,6 +1,11 @@
 import cv2
+from torch.utils.data import Dataset
 
 class ImageWoofDataset(Dataset):
+    
+    """
+    Default Pytorch dataset returning tuples of images and corresponding labels
+    """
     
     def __init__(self, images_paths, labels, transforms):
         assert len(images_paths) == len(labels)

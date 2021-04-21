@@ -2,7 +2,18 @@ import torch
 import copy
 
 
-def train_model(model, optimizer, dataloaders, criterion, num_epochs=10):
+def train_model(model, optimizer, dataloaders, criterion, device, num_epochs=10):
+    """
+	parameters:
+	model - model with 10 classes output classifier
+	dataloaders - dict with 'train' and 'val' dataloadders
+	criterion - loss function
+	device - torch.device
+	output:
+	best_model - model with best validation dataset accuracy
+	val_acc_history - list with history of validation accuracies values
+	train_loss_history - list with history of train mean losses values
+    """
     
     val_acc_history = []
     train_loss_history = []
