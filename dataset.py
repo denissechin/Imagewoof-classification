@@ -18,6 +18,7 @@ class ImageWoofDataset(Dataset):
     
     def __getitem__(self, idx):
         image = cv2.imread(self.images_paths[idx])
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = self.transforms(image=image)["image"]
         label = self.labels[idx]
         return (image, label)
